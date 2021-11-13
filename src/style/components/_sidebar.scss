@@ -1,0 +1,97 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: $gray-1;
+  box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  @include tablet {
+    width: 170px;
+  }
+  @include mobile {
+    width: 70px;
+  }
+
+  &__logo {
+    margin-top: 40px;
+    display: flex;
+    img {
+      width: 250px;
+      height: 250px;
+      @include tablet {
+        width: 150px;
+        height: 150px;
+      }
+      @include mobile {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+  &__menu {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @include mobile {
+      margin-top: 90px;
+    }
+    &__item {
+      margin: 15px 0;
+      width: 85%;
+      padding: 15px 5px;
+      background: $white-1;
+      border-radius: 18px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      pointer: cursor;
+      @include tablet {
+        padding: 10px 0px;
+        width: 90%;
+      }
+      @include mobile {
+        margin: 25px 0;
+        width: 75%;
+        padding: 3px;
+        border-radius: 15px;
+        justify-content: center;
+      }
+      &-icon {
+        margin-left: 25px;
+        background: none;
+        width: 50px;
+        height: 50px;
+        @include tablet {
+          margin-left: 5px;
+        }
+        @include mobile {
+          margin-left: 0px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &-title {
+        margin-left: 10px;
+        text-decoration: none;
+        font-size: $font-size-2;
+        color: $gray-1;
+        font-weight: $font-weight-lg;
+        @include tablet {
+          margin-left: 5px;
+          font-size: $font-size-1;
+          font-weight: $font-weight-md;
+        }
+        @include mobile {
+          display: none;
+        }
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.menu {
+  &__header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-title {
+      color: $gray-1;
+      font-size: $font-size-4;
+      font-weight: $font-weight-lg;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    }
+    @include tablet {
+      height: 100px;
+      &-title {
+        font-size: $font-size-3;
+      }
+    }
+    @include mobile {
+      &-title {
+        font-size: $font-size-2;
+      }
+    }
+  }
+}

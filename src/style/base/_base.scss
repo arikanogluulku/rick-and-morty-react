@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $body-background-color;
+  overflow-x: hidden !important;
+}
+.base__container {
+  margin-left: 250px;
+  @include tablet {
+    margin-left: 170px;
+  }
+  @include mobile {
+    margin-left: 70px;
+  }
+}

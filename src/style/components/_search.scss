@@ -1,0 +1,60 @@
+.search {
+  &__container {
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__form {
+    &__field {
+      width: 360px;
+      background: #fff;
+      color: $gray-2;
+      font: inherit;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+      border: 0;
+      outline: 0;
+      padding: 18px 18px;
+      @include tablet {
+        width: 280px;
+        padding: 14px 14px;
+      }
+      @include mobile {
+        width: 220px;
+      }
+    }
+  }
+}
+.button {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  &__search {
+    background: $gray-1;
+    color: $white-1;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 10px 36px;
+    @include tablet {
+      padding: 8px 27px;
+    }
+    &:hover {
+      background: darken($gray-1, 4%);
+    }
+
+    &:active {
+      background: $gray-1;
+      box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__inside {
+    margin-left: -96px;
+  }
+}
