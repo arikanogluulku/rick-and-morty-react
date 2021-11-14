@@ -1,12 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import episodeBack from '../../assets/episodeback.gif';
 
-function Episodes() {
+function EpisodeList({ data }) {
   return (
-    <div>
+    <div className="episodes__container">
+      {
+        data.map(((episode) => (
+          <div className="episodes__card" key={episode.id}>
 
-      denee
+            <img src={episodeBack} alt={episode.name} />
+
+            <div className="episodes__card-info">
+              <p className="episode__name">{episode.name}</p>
+              <p className="episode__date">
+                <i className="fa fa-calendar" />
+                {episode.air_date}
+              </p>
+            </div>
+
+          </div>
+        )))
+      }
     </div>
   );
 }
-
-export default Episodes;
+EpisodeList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.any).isRequired,
+};
+export default EpisodeList;

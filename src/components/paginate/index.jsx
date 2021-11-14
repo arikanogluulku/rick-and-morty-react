@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setCharacterCurrentPage } from '../../store/actions/characterActions';
 import { setLocationCurrentPage } from '../../store/actions/locationActions';
+import { setEpisodeCurrentPage } from '../../store/actions/episodeActions';
 
 function Paginate(props) {
   const dispatch = useDispatch();
@@ -14,6 +15,9 @@ function Paginate(props) {
     }
     if (props.info.clickFunc === 'location') {
       dispatch(setLocationCurrentPage(data.selected + 1));
+    }
+    if (props.info.clickFunc === 'episode') {
+      dispatch(setEpisodeCurrentPage(data.selected + 1));
     }
   };
 
