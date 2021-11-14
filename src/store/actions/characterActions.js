@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import CharacterService from '../../services/CharacterService';
 import CharacterTypes from '../actionTypes/characterTypes';
 

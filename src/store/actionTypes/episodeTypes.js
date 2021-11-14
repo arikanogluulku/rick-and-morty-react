@@ -1,0 +1,7 @@
+const EpisodeTypes = {
+  FETCH_EPISODE_SUCCESS: 'FETCH_EPISODE_SUCCESS',
+  FETCH_EPISODE_FAIL: 'FETCH_EPISODE_FAIL',
+  SET_CURRENT_PAGE: 'SET_CURRENT_PAGE',
+};
+
+export default EpisodeTypes;
