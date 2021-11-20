@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -50,11 +49,11 @@ function DetailModal({ info }) {
               ? (
                 <div className="modal__characters">
                   {
-                   locationResidents.map((char) => (
-                     <Link to={`/character/${char.id}`} style={{ textDecoration: 'none' }}>
-                       <img key={char.id} src={char.image} alt={char.name} className="modal__characters-image" />
-                     </Link>
-                   ))
+                    locationResidents.map((char) => (
+                      <Link to={`/character/${char.id}`} style={{ textDecoration: 'none' }}>
+                        <img key={char.id} src={char.image} alt={char.name} className="modal__characters-image" />
+                      </Link>
+                    ))
                   }
                 </div>
               )
@@ -80,7 +79,5 @@ function DetailModal({ info }) {
     </>
   );
 }
-DetailModal.propTypes = {
-  info: PropTypes.objectOf(PropTypes.any).isRequired,
-};
+
 export default DetailModal;
