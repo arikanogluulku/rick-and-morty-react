@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MenuTitle, EpisodeList, Paginate } from '../components';
-import { fetchEpisodes } from '../store/actions/episodeActions';
+import { fetchEpisodes, setEpisodeCurrentPage } from '../store/actions/episodeActions';
 
 function Episode() {
   const episodesState = useSelector((state) => state.episodes);
@@ -12,17 +12,19 @@ function Episode() {
     dispatch(fetchEpisodes(currentPage));
   }, [dispatch, currentPage]);
 
-  const paginationInfo = {
-    totalPage,
-    currentPage,
-    clickFunc: 'episode',
+  const handlePageChange = (data) => {
+    dispatch(setEpisodeCurrentPage(data.selected + 1));
   };
 
   return (
     <div>
       <MenuTitle info="Episodes" />
       <EpisodeList data={episodes} />
-      <Paginate info={paginationInfo} />
+      <Paginate
+        totalPage={totalPage}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }

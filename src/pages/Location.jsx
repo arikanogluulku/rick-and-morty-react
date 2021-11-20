@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Locations, MenuTitle, Paginate } from '../components';
-import { fetchLocations } from '../store/actions/locationActions';
+import { fetchLocations, setLocationCurrentPage } from '../store/actions/locationActions';
 
 function Location() {
   const locationsState = useSelector((state) => state.locations);
@@ -11,17 +11,20 @@ function Location() {
   useEffect(() => {
     dispatch(fetchLocations(currentPage));
   }, [dispatch, currentPage]);
-  const paginationInfo = {
-    totalPage,
-    currentPage,
-    clickFunc: 'location',
+
+  const handlePageChange = (data) => {
+    dispatch(setLocationCurrentPage(data.selected + 1));
   };
 
   return (
     <div>
       <MenuTitle info="locations" />
       <Locations data={locations} />
-      <Paginate info={paginationInfo} />
+      <Paginate
+        totalPage={totalPage}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }

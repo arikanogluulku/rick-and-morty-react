@@ -1,30 +1,47 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  Search, Filter, Paginate, CharacterList,
+  Search, Paginate, CharacterList, MenuTitle,
 } from '../components';
-import { fetchCharacters } from '../store/actions/characterActions';
+import {
+  fetchCharacters, searchCharacter, searchCharacterResultClear, setCharacterCurrentPage,
+} from '../store/actions/characterActions';
 
 function Home() {
   const charactersState = useSelector((state) => state.characters);
-  const { characters, currentPage, totalPage } = charactersState;
+  const {
+    characters, currentPage, totalPage, searchResult,
+  } = charactersState;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCharacters(currentPage));
   }, [dispatch, currentPage]);
 
-  const paginationInfo = {
-    totalPage,
-    currentPage,
-    clickFunc: 'character',
+  const searchInputChange = (text) => {
+    text.length > 3 ? dispatch(searchCharacter(text)) : null;
+  };
+  const searchResultClear = () => {
+    dispatch(searchCharacterResultClear());
+  };
+  const handlePageChange = (data) => {
+    dispatch(setCharacterCurrentPage(data.selected + 1));
   };
   return (
     <div>
-      <Search />
-      <Filter />
+      <MenuTitle info="characters" />
+      <Search
+        result={searchResult}
+        resultClear={searchResultClear}
+        searchInputChange={searchInputChange}
+      />
       <CharacterList data={characters} />
-      <Paginate info={paginationInfo} />
+      <Paginate
+        totalPage={totalPage}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
     </div>
   );
 }
