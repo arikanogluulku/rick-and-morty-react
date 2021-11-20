@@ -1,12 +1,11 @@
 import Sidebar from './sidebar';
-import Search from './search';
-import Filter from './filter';
+import Search from './Search';
 import { CharacterList, CharDetail } from './characters';
-import Locations from './locations';
-import EpisodeList from './episodes';
+import { Locations } from './locations';
+import EpisodeList from './EpisodeList';
 import MenuTitle from './MenuTitle';
-import Paginate from './paginate';
+import Paginate from './Paginate';
 
 export {
-  Sidebar, Search, Filter, CharacterList, CharDetail, Locations, EpisodeList, MenuTitle, Paginate,
+  Sidebar, Search, CharacterList, CharDetail, Locations, EpisodeList, MenuTitle, Paginate,
 };
