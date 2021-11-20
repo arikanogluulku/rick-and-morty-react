@@ -9,14 +9,14 @@ function App() {
   return (
     <Router>
       <Sidebar />
-      <Switch>
-        <div className="base__container">
+      <div className="base__container">
+        <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/locations" component={Location} />
           <Route path="/episodes" component={Episode} />
           <Route path="/character/:charId" component={CharacterDetail} />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
     </Router>
   );
 }
