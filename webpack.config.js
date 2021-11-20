@@ -1,7 +1,9 @@
+/* eslint-disable import/no-unresolved */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.jsx'),
@@ -60,11 +62,19 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProgressPlugin(),
+    new Dotenv({
+      path: './.env',
+    }),
     new HtmlWebpackPlugin({
       title: 'Rick And Morty App',
       template: path.resolve(__dirname, './public/index.html'),
     }),
   ],
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   devServer: {
     compress: true,
     port: 8080,
