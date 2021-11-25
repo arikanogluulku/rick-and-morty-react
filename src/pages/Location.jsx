@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Locations, MenuTitle, Paginate } from '../components';
+import { Locations, MenuTittle, Paginate } from '../components';
 import { fetchLocations, setLocationCurrentPage } from '../store/actions/locationActions';
 
 function Location() {
@@ -18,7 +18,7 @@ function Location() {
 
   return (
     <div>
-      <MenuTitle info="locations" />
+      <MenuTittle info="locations" />
       <Locations data={locations} />
       <Paginate
         totalPage={totalPage}

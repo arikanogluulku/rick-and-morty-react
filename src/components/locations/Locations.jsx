@@ -1,5 +1,6 @@
 import React from 'react';
 import DetailModal from './DetailModal';
+import './style.scss';
 
 function Locations({ data }) {
   return (

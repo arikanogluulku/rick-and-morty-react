@@ -1,5 +1,6 @@
 import React from 'react';
-import episodeBack from '../assets/episodeback.gif';
+import episodeBack from '../../assets/episodeback.gif';
+import './style.scss';
 
 function EpisodeList({ data }) {
   return (

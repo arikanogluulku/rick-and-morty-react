@@ -1,9 +1,7 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import './style.scss';
 
-function Search(props) {
-  const { searchInputChange, result, resultClear } = props;
+function Search({ searchInputChange, resultClear, children }) {
   const ulRef = useRef();
   const inputRef = useRef();
 
@@ -23,16 +21,7 @@ function Search(props) {
       <form>
         <input type="text" className="search__form__field" ref={inputRef} placeholder="search name..." onChange={(e) => searchInputChange(e.target.value)} />
         <ul className="search__result" ref={ulRef}>
-          {
-           result.map((char) => (
-             <Link to={`/character/${char.id}`} style={{ textDecoration: 'none' }}>
-               <div key={char.id} className="search__result-item">
-                 <img src={char.image} alt={char.name} />
-                 <p>{char.name}</p>
-               </div>
-             </Link>
-           ))
-          }
+          {children}
         </ul>
       </form>
     </div>

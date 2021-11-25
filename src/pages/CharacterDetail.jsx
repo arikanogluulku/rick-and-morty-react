@@ -29,10 +29,10 @@ function CharacterDetail() {
         <img src={char.image} alt={char.name} />
       </div>
       <table className="character__table">
-        <CharacterDetailItem info={{ title: 'Name', value: char.name }} />
-        <CharacterDetailItem info={{ title: 'Gender', icon: genderIcon(), value: char.gender }} />
-        <CharacterDetailItem info={{ title: 'Status', icon: statusIcon(), value: char.status }} />
-        <CharacterDetailItem info={{ title: 'Species', icon: speciesIcon(), value: char.species }} />
+        <CharacterDetailItem title="Name" value={char.name} />
+        <CharacterDetailItem title="Gender" icon={genderIcon()} value={char.gender} />
+        <CharacterDetailItem title="Status" icon={statusIcon()} value={char.status} />
+        <CharacterDetailItem title="Species" icon={speciesIcon()} value={char.species} />
       </table>
     </div>
   );

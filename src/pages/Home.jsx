@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
-  Search, Paginate, CharacterList, MenuTitle,
+  Search, Paginate, CharacterList, MenuTittle,
 } from '../components';
 import {
   fetchCharacters, searchCharacter, searchCharacterResultClear, setCharacterCurrentPage,
@@ -30,11 +30,20 @@ function Home() {
   };
   return (
     <div>
-      <MenuTitle info="characters" />
+      <MenuTittle info="characters" />
       <Search
-        result={searchResult}
         resultClear={searchResultClear}
         searchInputChange={searchInputChange}
+        children={
+            searchResult.map((char) => (
+              <Link to={`/character/${char.id}`} style={{ textDecoration: 'none' }} key={char.id}>
+                <div className="search__result-item">
+                  <img src={char.image} alt={char.name} />
+                  <p>{char.name}</p>
+                </div>
+              </Link>
+            ))
+          }
       />
       <CharacterList data={characters} />
       <Paginate

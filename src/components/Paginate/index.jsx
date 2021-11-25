@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import './style.scss';
 
 function Paginate(props) {
   const { totalPage, currentPage, handlePageChange } = props;

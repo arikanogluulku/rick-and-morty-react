@@ -1,15 +1,15 @@
 import React from 'react';
 
-function CharacterDetailItem({ info }) {
+function CharacterDetailItem({ title, icon, value }) {
   return (
     <>
       <tr>
         <td className="character__table-title">
-          {info.title}
+          {title}
         </td>
         <td className="character__table-value">
-          {info.icon}
-          {info.value}
+          {icon || ''}
+          {value}
         </td>
       </tr>
     </>

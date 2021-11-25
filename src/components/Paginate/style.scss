@@ -1,0 +1,28 @@
+.pagination {
+  font-size: $font-size-1;
+  display: inline-block;
+  list-style: none;
+  &__container {
+    display: block;
+    margin: 50px auto;
+    width: 50%;
+  }
+  &__page {
+    float: left;
+    color: $gray-1;
+    border: 2px solid $gray-1;
+    padding: 8px 16px;
+    border-radius: 32px;
+    margin-right: 2px;
+    background-color: $white-1;
+    cursor: pointer;
+    @include tablet {
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    &-active {
+      color: $white-1;
+      background-color: $gray-1;
+    }
+  }
+}

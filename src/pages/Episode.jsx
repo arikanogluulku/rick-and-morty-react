@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { MenuTitle, EpisodeList, Paginate } from '../components';
+import { MenuTittle, EpisodeList, Paginate } from '../components';
 import { fetchEpisodes, setEpisodeCurrentPage } from '../store/actions/episodeActions';
 
 function Episode() {
@@ -18,7 +18,7 @@ function Episode() {
 
   return (
     <div>
-      <MenuTitle info="Episodes" />
+      <MenuTittle info="Episodes" />
       <EpisodeList data={episodes} />
       <Paginate
         totalPage={totalPage}
