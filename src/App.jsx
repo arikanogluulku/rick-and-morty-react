@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Sidebar } from './components';
-import {
-  Home, Location, Episode, CharacterDetail,
-} from './pages';
+import routes from './routes/routes';
 
 function App() {
   return (
@@ -11,10 +9,9 @@ function App() {
       <Sidebar />
       <div className="base__container">
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/locations" component={Location} />
-          <Route path="/episodes" component={Episode} />
-          <Route path="/character/:charId" component={CharacterDetail} />
+          {routes.map((route) => {
+            <Route path={route.path} component={route.component} exact={route.exact} />;
+          })}
         </Switch>
       </div>
     </Router>
